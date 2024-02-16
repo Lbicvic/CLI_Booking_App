@@ -42,7 +42,7 @@ func main() {
 
 			bookings = append(bookings, user)
 
-			fmt.Printf("Thank you %v %v for booking %v tickets.\nYou will receive a confirmation email at %v\n", firstName, lastName, userTickets, email)
+			fmt.Printf("Thank you %v %v for booking %v tickets.\nYou will receive a confirmation email at %v\n", user.firstName, user.lastName, user.tickets, user.email)
 
 			waitGroup.Add(1)
 			go sendTicket(user)
