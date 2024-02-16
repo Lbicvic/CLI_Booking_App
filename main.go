@@ -3,7 +3,6 @@ package main
 import (
 	"booking-app/helper"
 	"fmt"
-	"regexp"
 	"sync"
 	"time"
 )
@@ -62,12 +61,11 @@ func main() {
 				fmt.Println("Invalid first name or last name. Names should be longer than 2 characters, please try again")
 				continue
 			}
-			emailRegex, _ := regexp.Compile("[^@ \t\r\n]+@[^@ \t\r\n]+\\.[^@ \t\r\n]+")
-			if !emailRegex.MatchString(email) {
+			if !isValidEmail {
 				fmt.Println("Invalid email, please try again")
 				continue
 			}
-			if userTickets > remainingTickets {
+			if !isValidTicket {
 				fmt.Printf("There are only %v remaining tickets, please try again\n", remainingTickets)
 				continue
 			}
